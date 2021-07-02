@@ -8,20 +8,18 @@ class ShopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.clear_rounded),
-          onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (_) => HomePage()), (route) => false),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.clear_rounded),
+            onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (_) => HomePage()),
+                (route) => false),
+          ),
+          elevation: 0.0,
+          title: Text("${shop!.name}"),
         ),
-        centerTitle: true,
-        title: Text(shop!.name ?? "Shop Name"),
-        elevation: 0.0,
-      ),
-      body: Container(
-        color: Colors.white,
-        child: Text("Shop Page"),
       ),
     );
   }

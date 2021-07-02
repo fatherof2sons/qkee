@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qkee/src/ui/shop_register_page.dart';
 import 'package:qkee/src/widgets/home/footer_main.dart';
 import 'package:qkee/src/widgets/home/search_button.dart';
 import 'package:qkee/src/widgets/home/search_engine.dart';
@@ -6,7 +7,10 @@ import 'package:qkee/src/widgets/home/text_main.dart';
 import 'package:qkee/src/widgets/home/title_main.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  void _registerShop(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) => ShopRegisterPage(), fullscreenDialog: true));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,10 @@ class HomePage extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: MainTitle(title: "Qkee"),
+              child: MainTitle(
+                title: "Qkee",
+                onLongPress: () => _registerShop(context),
+              ),
             ),
             Expanded(
               flex: 4,
@@ -28,9 +35,12 @@ class HomePage extends StatelessWidget {
                     MainText(text: "Find Pretty Much Any Shop You Want!"),
                     SizedBox(height: 70.0),
                     SearchButton(
-                        onPressed: () => showSearch(
-                            context: context, delegate: SearchEngine()),
-                        btnText: "Find Shops")
+                      onPressed: () => showSearch(
+                          context: context, delegate: SearchEngine()),
+                      btnText: "Find Shops",
+                      color: Colors.black87,
+                      icon: Icons.store_rounded,
+                    )
                   ],
                 ),
               ),

@@ -5,15 +5,20 @@ class SearchButton extends StatelessWidget {
     Key? key,
     @required this.onPressed,
     @required this.btnText,
+    @required this.color,
+    @required this.icon,
   }) : super(key: key);
+
   final void Function()? onPressed;
   final String? btnText;
+  final Color? color;
+  final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
       elevation: 5.0,
-      color: Colors.black87,
+      color: color,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0), side: BorderSide.none),
       child: Padding(
@@ -32,7 +37,7 @@ class SearchButton extends StatelessWidget {
             ),
             SizedBox(width: 10.0),
             Icon(
-              Icons.store_rounded,
+              icon,
               size: 30.0,
               color: Colors.white,
             ),

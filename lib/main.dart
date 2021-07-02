@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:qkee/src/ui/home_page.dart';
-import 'src/ui/shop_page.dart';
 
 void main() {
   runApp(MyApp());
